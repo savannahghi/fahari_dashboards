@@ -2,7 +2,8 @@ import trends from '../../public/assets/images/trends.png'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {useState, ChangeEvent, useEffect } from 'react';
-import instance from 'axios';
+import {instance} from '../../axios/axios'
+import { AxiosError, AxiosResponse } from 'axios';
 
 interface InputState{
    username: string
@@ -11,6 +12,7 @@ interface InputState{
 
 const LoginPage = () =>{
 
+  
     const router = useRouter();
     
     const [inputs, setInputs] = useState<InputState>({
@@ -35,10 +37,26 @@ const LoginPage = () =>{
   
     const navigateToDashBoardPage = async () =>{
         
-      router.push('dashboards');
+      instance.post('api/auth/login/', {
+        data: {
+          username,
+          password
+        }
+      }).then((response:AxiosResponse)=>{
+     
+        console.log(response.status);
+
+        console.log(response.data);
+        
+      }).catch((error:AxiosError)=>{
+        
+        console.log(error.message);
+
+        console.log(error.status);
+        
+      })
     }
 
-    
     return (
         <section className="grid grid-cols-2 h-screen">
            <section className=" bg-blue-500 flex flex-col justify-center items-center">
