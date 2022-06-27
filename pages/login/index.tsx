@@ -11,7 +11,6 @@ interface InputState{
 }
 
 const LoginPage = () =>{
-
   
     const router = useRouter();
     
@@ -37,24 +36,26 @@ const LoginPage = () =>{
   
     const navigateToDashBoardPage = async () =>{
         
-      instance.post('api/auth/login/', {
-        data: {
-          username,
-          password
-        }
-      }).then((response:AxiosResponse)=>{
+      // instance.post('api/auth/login/', {
+      //   data: {
+      //     username,
+      //     password
+      //   }
+      // }).then((response:AxiosResponse)=>{
      
-        console.log(response.status);
+      //   console.log(response.status);
 
-        console.log(response.data);
+      //   console.log(response.data);
         
-      }).catch((error:AxiosError)=>{
+      // }).catch((error:AxiosError)=>{
         
-        console.log(error.message);
+      //   console.log(error.message);
 
-        console.log(error.status);
+      //   console.log(error.status);
         
-      })
+      // })
+
+      router.push("dashboards");
     }
 
     return (
