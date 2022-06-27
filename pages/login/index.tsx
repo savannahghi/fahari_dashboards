@@ -1,9 +1,9 @@
 import trends from '../../public/assets/images/trends.png'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import {useState, ChangeEvent, useEffect } from 'react';
-import {instance} from '../../axios/axios'
-import { AxiosError, AxiosResponse } from 'axios';
+import {useState, ChangeEvent} from 'react';
+// import {instance} from '../../axios/axios'
+// import { AxiosError, AxiosResponse } from 'axios';
 
 interface InputState{
    username: string
@@ -27,11 +27,11 @@ const LoginPage = () =>{
       })
   }
      
-    const [loading, setLoading] = useState<boolean>(false);
+    // const [loading, setLoading] = useState<boolean>(false);
 
-    const [error, setError] = useState<boolean>(false)
+    // const [error, setError] = useState<boolean>(false)
    
-    const {username, password} = inputs;
+    // const {username, password} = inputs;
 
   
     const navigateToDashBoardPage = async () =>{
@@ -71,7 +71,8 @@ const LoginPage = () =>{
                 <input type='text' value={inputs.username} onChange={handleChangeEvent} id='username' name='username' placeholder='Enter your username' className="border-2 border-solid border-black p-3 w-4/5 rounded-md" />
                 <label htmlFor="Password">Password</label>
                 <input type="password" value={inputs.password} onChange ={handleChangeEvent} id='password' name='password' placeholder='Enter your password' className='border-2 border-solid border-black p-3 w-4/5 rounded-md' /> 
-                 {loading ? <Image src= '/../public/assets/animations/98891-insider-loading.gif' className='object-contain' width={150} height={150} alt="loading spinner" /> :  <input type="button" onClick={navigateToDashBoardPage} value='Login' className='bg-blue-600 text-white block w-60 h-10 rounded-md font-semibold cursor-pointer' />}
+                <input type="button" onClick={navigateToDashBoardPage} value='Login' className='bg-blue-600 text-white block w-60 h-10 rounded-md font-semibold cursor-pointer' />
+                 {/* {loading ? <Image src= '/../public/assets/animations/98891-insider-loading.gif' className='object-contain' width={150} height={150} alt="loading spinner" /> :  <input type="button" onClick={navigateToDashBoardPage} value='Login' className='bg-blue-600 text-white block w-60 h-10 rounded-md font-semibold cursor-pointer' />} */}
              </form>
            </section>
         </section>
