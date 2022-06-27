@@ -61,7 +61,7 @@ const LoginPage = () =>{
     return (
         <section className="grid grid-cols-2 h-screen">
            <section className=" bg-blue-500 flex flex-col justify-center items-center">
-             <Image src={trends} width={500} height={300} />
+             <Image src={trends} width={500} height={300} alt="dashboard_logo" />
         <h1 className="text-center font-semibold text-2xl relative right-11 antialiased tracking-wide text-white">Fahari ya Jamii Dashboards</h1>
            </section>
            <section className='p-10'>

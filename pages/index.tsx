@@ -15,7 +15,7 @@ import logo from '../public/assets/images/usaid.png';
 
      return () => clearTimeout(timer);
     
-  },[]);
+  },[router]);
    return (
 
      <section className=" bg-gray-300 flex flex-col justify-center items-center h-screen">
