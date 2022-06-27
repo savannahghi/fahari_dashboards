@@ -1,7 +1,7 @@
 import {SearchIcon} from "@heroicons/react/solid"
 import { menuItems } from '../../data/menu';
 import MenuItems from '../../components/menu_items/menu_items';
-import SideBar from "components/sidebar/sidebar";
+import SideBar from "../../components/sidebar/sidebar";
 import { ChangeEvent,  useState } from "react";
  
 const DashBoards = () =>{
