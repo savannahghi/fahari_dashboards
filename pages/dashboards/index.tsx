@@ -6,7 +6,7 @@ import { ChangeEvent,  useState } from "react";
  
 const DashBoards = () =>{
 
-    const[searchInput, setSearchInput]= useState<string>("")
+    const[searchInput, setSearchInput]= useState<string | any>("")
 
 
      const handleInputChange = (event: ChangeEvent<HTMLInputElement>) =>{
