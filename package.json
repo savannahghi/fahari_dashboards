@@ -1,12 +1,26 @@
 {
   "name": "fahari-ya-jamii",
+  "description": "A front-end for the IDR Server.",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "homepage": "https://github.com/savannahghi/fahari_dashboards",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/savannahghi/fahari_dashboards.git"
+  },
+  "author": "Savannah Informatics Global Health Institute",
+  "contributors": [
+    "Martin Mugambi <martinmwenda026@gmail.com>",
+    "Kennedy Kori <kennedykori47@gmail.com>"
+  ],
+  "types": "types/index.d.ts",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "build-types": "tsc -p tsconfig.json",
+    "dev": "next dev",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "test": "echo 'No tests to run.'"
   },
   "dependencies": {
     "-": "^0.0.1",
