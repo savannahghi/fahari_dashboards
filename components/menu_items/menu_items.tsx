@@ -17,10 +17,10 @@ const MenuItems = (props: Menu) =>{
     }
 
     return (
-        <article className="text-center  w-80 h-44 hover:shadow-2xl hover:rounded-md cursor-pointer hover:scale-105" onClick={navigateToPage}> 
-                   <Image src={props.icon}  width ={100} height ={100} className="" />
+        <article className="text-center  w-80 h-44 hover:shadow-2xl hover:rounded-md cursor-pointer hover:scale-105" data-testid="article" onClick={navigateToPage}> 
+                   <Image src={props.icon}  width ={100} height ={100} alt="menu_logo" />
             <h1 className="font-semibold">{props.title}</h1>
-            <p className=" font-light">{props.description}</p>
+            <p className=" font-light" data-testid="paragraph">{props.description}</p>
         </article>
     );
 }
