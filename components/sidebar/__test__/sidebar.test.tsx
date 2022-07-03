@@ -1,112 +1,98 @@
-import {screen, render, fireEvent} from "@testing-library/react";
-import SideBar from "../sidebar";
-import {useRouter} from "next/router"
-
+import { screen, render, fireEvent } from "@testing-library/react"
+import SideBar from "../sidebar"
+import { useRouter } from "next/router"
 
 jest.mock("next/router", () => {
+  const push = jest.fn()
 
-  const push = jest.fn();
+  return {
+    useRouter: jest.fn(() => ({
+      push: push,
+    })),
+  }
+})
 
-   return {
-     useRouter: jest.fn(()=>({
-      push: push
-     })),
-   };
-});
+describe("Unit Test sidebar component", () => {
+  beforeEach(() => {
+    render(<SideBar />)
+  })
 
-describe("Unit Test sidebar component", ()=>{
+  test("Image element should be visible", () => {
+    const imageElement = screen.getByRole("img")
 
-    beforeEach(()=>{
-      render(<SideBar />)
-    });
+    expect(imageElement).toBeVisible
+  })
 
-
-   test("Image element should be visible", ()=>{
-
-     const imageElement = screen.getByRole("img");
-  
-      expect(imageElement).toBeVisible
-   });
-
-   test("should render correct heading title", ()=>{
-
-    const headingElement = screen.getByText(/Fahari ya Jamii/i);
+  test("should render correct heading title", () => {
+    const headingElement = screen.getByText(/Fahari ya Jamii/i)
     expect(headingElement).toBeVisible
-   })
+  })
 
+  test("should display all icons", () => {
+    const iconELement = screen.getAllByTestId("icon")
+    expect(iconELement).toBeVisible
+  })
 
-   test("should display all icons", ()=>{
-      
-     const iconELement = screen.getAllByTestId("icon");
-     expect(iconELement).toBeVisible;
-   });
-
-   test("should render correct icon title", ()=>{
-
-    const iconTitle = screen.getByText(/home/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/home/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/dashboards/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/dashboards/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/covid-19/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/covid-19/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/hiv services/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/hiv services/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/Account/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/Account/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/settings/i);
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/settings/i)
     expect(iconTitle).toBeVisible
-   });
-   test("should render correct icon title", ()=>{
-    const iconTitle = screen.getByText(/profile/i);
+  })
+  test("should render correct icon title", () => {
+    const iconTitle = screen.getByText(/profile/i)
     expect(iconTitle).toBeVisible
-   });
+  })
 
-   test("should render 5 visible icons", ()=>{ 
-    const icon = screen.getAllByTestId("icon"); 
-    expect(icon.length).toBe(5);
-   });
+  test("should render 5 visible icons", () => {
+    const icon = screen.getAllByTestId("icon")
+    expect(icon.length).toBe(5)
+  })
 
-  test("home icon should be clickable", ()=>{
-
-    const homeIcon = screen.getByTestId("home");
+  test("home icon should be clickable", () => {
+    const homeIcon = screen.getByTestId("home")
 
     fireEvent.click(homeIcon)
-   
+
     expect(useRouter().push).toBeCalledWith("dashboards")
-  });
+  })
 
-  test("covid icon should be clickable", ()=>{
-
-
-    const homeIcon = screen.getByTestId("covid");
+  test("covid icon should be clickable", () => {
+    const homeIcon = screen.getByTestId("covid")
 
     fireEvent.click(homeIcon)
-   
+
     expect(useRouter().push).toBeCalledWith("covid")
-  });
+  })
 
-  test("hiv icon should be clickable", ()=>{
-
-    const homeIcon = screen.getByTestId("hiv");
+  test("hiv icon should be clickable", () => {
+    const homeIcon = screen.getByTestId("hiv")
 
     fireEvent.click(homeIcon)
-   
-    expect(useRouter().push).toBeCalledWith("hts")
-  });
 
+    expect(useRouter().push).toBeCalledWith("hts")
+  })
 })

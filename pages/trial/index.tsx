@@ -1,12 +1,11 @@
-import SideBar from "../../components/sidebar/sidebar";
+import SideBar from "../../components/sidebar/sidebar"
 
-const Trial = () =>{
-
-    return (
-        <section>
-            <SideBar />
-        </section>
-    );
+const Trial = () => {
+  return (
+    <section>
+      <SideBar />
+    </section>
+  )
 }
 
-export default Trial;
+export default Trial
