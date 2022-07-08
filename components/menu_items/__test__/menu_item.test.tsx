@@ -1,53 +1,47 @@
-import {screen, render, fireEvent} from "@testing-library/react";
-import CovidLogo  from '../../../public/assets/images/covid.png'
-import MenuItems from "../menu_items";
+import { screen, render, fireEvent } from "@testing-library/react"
+import CovidLogo from "../../../public/assets/images/covid.png"
+import MenuItems from "../menu_items"
 
+describe("Test Menu Item Component", () => {
+  const MockMenuItem = () => {
+    return (
+      <>
+        <MenuItems id={0} icon={CovidLogo} title={""} description={""} />
+      </>
+    )
+  }
 
-describe("Test Menu Item Component", ()=>{
+  beforeEach(() => {
+    render(<MockMenuItem />)
+  })
 
-    const MockMenuItem = () =>{
-         return (
-            <>
-            <MenuItems id={0} icon={CovidLogo} title={""} description={""}/>
-            </>
-         );
-    }
+  test("Componet should be visible", () => {
+    expect(MockMenuItem).toBeVisible
+  })
 
-    beforeEach(()=>{
-      render(<MockMenuItem/>)        
-    })
+  test("should render a visible image", () => {
+    const imageElement = screen.getByRole("img")
 
-    test("Componet should be visible", ()=>{
-        expect(MockMenuItem).toBeVisible
-    });
+    expect(imageElement).toBeInTheDocument
+  })
 
-    test("should render a visible image", ()=>{
+  test("should  render a heading element", () => {
+    const headingElement = screen.getByRole("heading")
 
-        const imageElement = screen.getByRole("img");
+    expect(headingElement).toBeVisible
+  })
 
-        expect(imageElement).toBeInTheDocument;
-    });
+  test("should render a paragraph element", () => {
+    const paragraphElement = screen.getByTestId("paragraph")
 
-    test("should  render a heading element", ()=>{
+    expect(paragraphElement).toBeVisible
+  })
 
-        const headingElement = screen.getByRole("heading");
+  test("should navigate", () => {
+    const clickableElement = screen.getByTestId("click")
 
-        expect(headingElement).toBeVisible
-    });
+    fireEvent.click(clickableElement)
 
-    test("should render a paragraph element", ()=>{
-
-         const paragraphElement = screen.getByTestId("paragraph");
-
-         expect(paragraphElement).toBeVisible
-    });
-
-    test("article element should be clickable", ()=>{
-
-        const articleElement = screen.getByTestId("article");
-   
-         fireEvent.click(articleElement);
-
-         expect(articleElement).not.toBeInTheDocument
-    })
+    expect(clickableElement).not.toBeVisible
+  })
 })
