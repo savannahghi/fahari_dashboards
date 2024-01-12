@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Head from "next/head"
 import logo from "../public/assets/images/usaid.png"

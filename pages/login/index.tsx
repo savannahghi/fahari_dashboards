@@ -1,6 +1,6 @@
 import trends from "../../public/assets/images/trends.png"
 import Image from "next/image"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useState, ChangeEvent } from "react"
 // import {instance} from '../../axios/axios'
 // import { AxiosError, AxiosResponse } from 'axios';

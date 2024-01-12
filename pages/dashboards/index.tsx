@@ -1,8 +1,9 @@
-import { SearchIcon } from '@heroicons/react/solid'
+import { GoSearch } from "react-icons/go";
 import { menuItems } from '../../data/menu'
 import MenuItems from '../../components/menu_items/menu_items'
 import SideBar from '../../components/sidebar/sidebar'
 import { ChangeEvent, useState } from 'react'
+
 
 const DashBoards = () => {
   const [searchInput, setSearchInput] = useState<string>('')
@@ -16,7 +17,7 @@ const DashBoards = () => {
       <SideBar />
       <section className="bg-slate-100 w-screen p-5 flex flex-col space-y-6">
         <section className="flex flex-row items-center space-x-4 ">
-          <SearchIcon className="" width={25} />
+          <GoSearch className="" width={25} />
           <input
             type="text"
             placeholder="Search..."
