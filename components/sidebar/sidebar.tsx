@@ -1,11 +1,11 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import logo from "../../public/assets/images/usaid.png"
 import Image from "next/image"
-import { HomeIcon } from "@heroicons/react/solid"
-import { ChartBarIcon } from "@heroicons/react/solid"
-import { ChartPieIcon } from "@heroicons/react/solid"
-import { UserCircleIcon } from "@heroicons/react/solid"
-import { CogIcon } from "@heroicons/react/solid"
+import { GoHome } from "react-icons/go";
+import { BsBarChart } from "react-icons/bs";
+import { FiPieChart } from "react-icons/fi";
+import { FaCog } from "react-icons/fa";
+import { BiUserCircle } from "react-icons/bi";
 
 const SideBar = () => {
   const router = useRouter()
@@ -24,7 +24,7 @@ const SideBar = () => {
           data-testid="home"
           onClick={() => router.push("dashboards")}
         >
-          <HomeIcon className=" text-white" width={30} data-testid="icon" />
+          <GoHome className=" text-white" width={30} data-testid="icon" />
           <h5 className="text-white text-base font-semibold antialiased">
             Home
           </h5>
@@ -36,7 +36,7 @@ const SideBar = () => {
             data-testid="covid"
             onClick={() => router.push("covid")}
           >
-            <ChartBarIcon
+            <BsBarChart
               className=" text-white"
               width={30}
               data-testid="icon"
@@ -48,7 +48,7 @@ const SideBar = () => {
             data-testid="hiv"
             onClick={() => router.push("hts")}
           >
-            <ChartPieIcon
+            <FiPieChart
               className=" text-white"
               width={30}
               data-testid="icon"
@@ -61,7 +61,7 @@ const SideBar = () => {
             Profile
           </h5>
           <section className="flex flex-row space-x-3 items-center hover:opacity-50 hover:bg-transparent">
-            <UserCircleIcon
+            <BiUserCircle
               className="text-white"
               width={30}
               data-testid="icon"
@@ -69,7 +69,7 @@ const SideBar = () => {
             <h5 className="text-white  font-semibold">Account</h5>
           </section>
           <section className="flex flex-row space-x-3 items-center hover:opacity-50 hover:bg-transparent">
-            <CogIcon className="text-white" width={30} data-testid="icon" />
+            <FaCog className="text-white" width={30} data-testid="icon" />
             <h5 className="text-white  font-semibold">Settings</h5>
           </section>
         </section>

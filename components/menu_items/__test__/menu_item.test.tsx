@@ -2,6 +2,14 @@ import { screen, render, fireEvent } from "@testing-library/react"
 import CovidLogo from "../../../public/assets/images/covid.png"
 import MenuItems from "../menu_items"
 
+jest.mock("next/navigation", () => {
+  return {
+    useRouter: jest.fn(() => ({
+      push: jest.fn(),
+    })),
+  }
+})
+
 describe("Test Menu Item Component", () => {
   const MockMenuItem = () => {
     return (
