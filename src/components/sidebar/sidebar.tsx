@@ -1,11 +1,13 @@
 import { useRouter } from "next/navigation"
-import logo from "../../public/assets/images/usaid.png"
+import logo from "@images/usaid.png"
 import Image from "next/image"
-import { GoHome } from "react-icons/go";
-import { BsBarChart } from "react-icons/bs";
-import { FiPieChart } from "react-icons/fi";
-import { FaCog } from "react-icons/fa";
-import { BiUserCircle } from "react-icons/bi";
+import {
+  HiChartBar,
+  HiChartPie,
+  HiOutlineCog,
+  HiOutlineHome,
+  HiOutlineUserCircle,
+} from "react-icons/hi"
 
 const SideBar = () => {
   const router = useRouter()
@@ -24,7 +26,11 @@ const SideBar = () => {
           data-testid="home"
           onClick={() => router.push("dashboards")}
         >
-          <GoHome className=" text-white" width={30} data-testid="icon" />
+          <HiOutlineHome
+            className=" text-white"
+            width={30}
+            data-testid="icon"
+          />
           <h5 className="text-white text-base font-semibold antialiased">
             Home
           </h5>
@@ -36,11 +42,7 @@ const SideBar = () => {
             data-testid="covid"
             onClick={() => router.push("covid")}
           >
-            <BsBarChart
-              className=" text-white"
-              width={30}
-              data-testid="icon"
-            />
+            <HiChartBar className=" text-white" width={30} data-testid="icon" />
             <h5 className=" text-white font-semibold antialiased">Covid-19</h5>
           </section>
           <section
@@ -48,11 +50,7 @@ const SideBar = () => {
             data-testid="hiv"
             onClick={() => router.push("hts")}
           >
-            <FiPieChart
-              className=" text-white"
-              width={30}
-              data-testid="icon"
-            />
+            <HiChartPie className=" text-white" width={30} data-testid="icon" />
             <h5 className=" text-white font-semibold antialiased">
               HIV Services
             </h5>
@@ -61,7 +59,7 @@ const SideBar = () => {
             Profile
           </h5>
           <section className="flex flex-row space-x-3 items-center hover:opacity-50 hover:bg-transparent">
-            <BiUserCircle
+            <HiOutlineUserCircle
               className="text-white"
               width={30}
               data-testid="icon"
@@ -69,7 +67,11 @@ const SideBar = () => {
             <h5 className="text-white  font-semibold">Account</h5>
           </section>
           <section className="flex flex-row space-x-3 items-center hover:opacity-50 hover:bg-transparent">
-            <FaCog className="text-white" width={30} data-testid="icon" />
+            <HiOutlineCog
+              className="text-white"
+              width={30}
+              data-testid="icon"
+            />
             <h5 className="text-white  font-semibold">Settings</h5>
           </section>
         </section>
