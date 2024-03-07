@@ -1,11 +1,13 @@
+import SideBar from "@/components/sidebar/sidebar"
 import { screen, render, fireEvent } from "@testing-library/react"
-import SideBar from "../sidebar"
 import { useRouter } from "next/navigation"
 
 jest.mock("next/navigation", () => {
+  const push = jest.fn()
+
   return {
     useRouter: jest.fn(() => ({
-      push: jest.fn(),
+      push: push,
     })),
   }
 })
@@ -75,7 +77,7 @@ describe("Unit Test sidebar component", () => {
 
     fireEvent.click(homeIcon)
 
-    expect(useRouter).toHaveBeenCalled()
+    expect(useRouter().push).toBeCalledWith("dashboards")
   })
 
   test("covid icon should be clickable", () => {
@@ -83,7 +85,7 @@ describe("Unit Test sidebar component", () => {
 
     fireEvent.click(homeIcon)
 
-    expect(useRouter).toHaveBeenCalled()
+    expect(useRouter().push).toBeCalledWith("covid")
   })
 
   test("hiv icon should be clickable", () => {
@@ -91,6 +93,6 @@ describe("Unit Test sidebar component", () => {
 
     fireEvent.click(homeIcon)
 
-    expect(useRouter).toHaveBeenCalled()
+    expect(useRouter().push).toBeCalledWith("hts")
   })
 })

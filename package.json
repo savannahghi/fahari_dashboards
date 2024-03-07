@@ -11,7 +11,8 @@
   "author": "Savannah Informatics Global Health Institute",
   "contributors": [
     "Martin Mugambi <martinmwenda026@gmail.com>",
-    "Kennedy Kori <kennedykori47@gmail.com>"
+    "Kennedy Kori <kennedykori47@gmail.com>",
+    "Victor Gichui <victor.gichui@savannahinformatics.com>"
   ],
   "types": "types/index.d.ts",
   "scripts": {
@@ -29,13 +30,15 @@
     "@headlessui/react": "^1.7.18",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
     "axios": "^1.6.5",
+    "clsx": "^2.1.0",
     "g": "^2.0.1",
     "next": "^14.0.4",
     "npm": "^8.13.1",
     "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^5.0.1"
+    "react-icons": "^5.0.1",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
