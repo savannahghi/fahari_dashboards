@@ -51,3 +51,4 @@ export interface Menu {
 export interface MenuTemp extends Menu {
   current: boolean
 }
+export type DictType = Record<undefined, undefined>;

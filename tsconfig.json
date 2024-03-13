@@ -49,6 +49,8 @@
       "@data/*": [
         "./src/data/*"
       ],
+      "@types": ["./index.d.ts"]
+
     },
     "plugins": [
       {

@@ -1,4 +1,4 @@
-import { Menu } from "../../types/types"
+import { Menu } from "@types"
 import Link from "next/link"
 
 const MenuItems = (props: Menu) => {

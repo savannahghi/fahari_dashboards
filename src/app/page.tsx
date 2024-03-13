@@ -13,7 +13,7 @@ const Home = () => {
             className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
             aria-hidden="true"
           />
-          <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 py-4 sm:py-40 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
               <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                 <div className="max-w-lg">
@@ -24,7 +24,7 @@ const Home = () => {
                     src={idrServerLogo}
                     alt="CBS Logo"
                   />
-                  <div className="mt-24 sm:mt-32 lg:mt-16">
+                  <div className="mt-3 sm:mt-32 lg:mt-16">
                     <a href="#" className="inline-flex space-x-6">
                       <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">
                         CBS
@@ -55,7 +55,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative mt-8 sm:mt-0">
                 <svg
                   className="absolute w-full text-green-500"
                   fill="currentColor"

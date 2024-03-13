@@ -29,7 +29,7 @@ const LoginPage = () => {
   }
 
   return (
-    <section className="flex justify-center items-center h-auto sm:my-[10rem] m-3">
+    <section className="min-h-screen grid place-items-center sm:px-0 px-1">
       <div
         className="w-full md:w-[600px] h-[600px] text-nci-gray"
         data-testid="login_form"
