@@ -1,6 +1,5 @@
-import { HiOutlineServer } from "react-icons/hi";
-import { MenuTemp, cloudEmrSystems, fyjMenuSystems } from "../types/types"
-import { HiOutlineInformationCircle } from "react-icons/hi";
+import { HiOutlineServer, HiOutlineInformationCircle } from "react-icons/hi"
+import { MenuTemp, cloudEmrSystems, fyjMenuSystems } from "@types"
 
 export const menuItems: MenuTemp[] = [
   {
