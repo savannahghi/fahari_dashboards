@@ -33,7 +33,7 @@ export interface VisualizationType {
   metadata: MetaDataType
   is_published: boolean
 }
-export interface Menu {
+export interface DashboardType {
   id: string
   icon?: StaticImageData
   created_by?: string | null
@@ -48,7 +48,7 @@ export interface Menu {
   is_published?: boolean
 }
 
-export interface MenuTemp extends Menu {
+export interface DashboardTypeTemp extends DashboardType {
   current: boolean
 }
 export type DictType = Record<undefined, undefined>;

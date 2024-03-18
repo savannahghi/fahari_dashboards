@@ -1,6 +1,5 @@
 "use client"
 
-import { Dispatch, SetStateAction } from "react"
 import Image from "next/image"
 import { HiChartBar, HiOutlineHome, HiOutlineCog } from "react-icons/hi"
 import { BsDatabaseUp } from "react-icons/bs"
@@ -16,7 +15,7 @@ function classNames(...classes: (string | undefined | null | false)[]): string {
 
 type Props = {
   collapsed: boolean
-  setCollapsed: Dispatch<SetStateAction<boolean>>
+  setCollapsed: () => void
 }
 const Sidebar = ({ collapsed, setCollapsed }: Props) => {
   const pathname = usePathname()
@@ -29,7 +28,7 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
       {/* Static sidebar for desktop */}
       <div className="lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col">
         <div
-          className={`flex hidden sm:flex grow flex-col gap-y-5 overflow-y-auto bg-[#2f3091] pb-4 ${
+          className={`flex hidden xl:flex grow flex-col gap-y-5 overflow-y-auto bg-[#2f3091] pb-4 ${
             collapsed ? "px-3" : "px-6"
           }`}
         >
@@ -39,10 +38,12 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
             }`}
           >
             {!collapsed && (
+              <Link href="/">
               <div className="flex h-16 shrink-0 items-center flex-row space-x-5">
                 <Image
                   src={idrServerLogo}
                   width={70}
+                  data-testid="idrLogo"
                   height={70}
                   alt="sidebar_logo"
                   className="h-10 w-auto"
@@ -51,10 +52,12 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
                   DATA REPOSITORY
                 </h5>
               </div>
+              </Link>
             )}
             <button
               className="grid place-content-center hover:bg-gray-400 text-white w-10 h-10 rounded-full"
-              onClick={() => setCollapsed((prev: boolean) => !prev)}
+              data-testid="navToggle"
+              onClick={setCollapsed}
             >
               <span className="sr-only">Toggle Navigation</span>
               <BsDatabaseUp className="w-6 h-6" />
@@ -70,6 +73,7 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
             <ul role="list" className="flex flex-1 flex-col">
               <li className="py-2">
                 <Link
+                  data-testid="adminLinkOpen"
                   href="/admin"
                   className={classNames(
                     activeMenu("admin"),
@@ -154,26 +158,26 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
                 : "hidden"
             }`}
           >
-           
             <ul role="list" className="flex flex-1 flex-col">
               <li className="py-2">
-              <Link
-              href="/admin"
-              title="admin"
-              className={classNames(
-                activeMenu("admin"),
-                "text-white p-2 hover:text-white hover:bg-blue-600",
-                "group flex gap-x-3 rounded-md text-sm leading-6 font-semibold",
-              )}
-            >
-              <HiOutlineHome
-                className={classNames(
-                  "text-gray-100 group-hover:text-white",
-                  "h-6 w-6 shrink-0",
-                )}
-                aria-hidden="true"
-              />
-            </Link>
+                <Link
+                  href="/admin"
+                  data-testid="adminLinkClosed"
+                  title="admin"
+                  className={classNames(
+                    activeMenu("admin"),
+                    "text-white p-2 hover:text-white hover:bg-blue-600",
+                    "group flex gap-x-3 rounded-md text-sm leading-6 font-semibold",
+                  )}
+                >
+                  <HiOutlineHome
+                    className={classNames(
+                      "text-gray-100 group-hover:text-white",
+                      "h-6 w-6 shrink-0",
+                    )}
+                    aria-hidden="true"
+                  />
+                </Link>
               </li>
               <li className="py-2">
                 <Link

@@ -1,4 +1,4 @@
-import { fyjSystems } from "@/data/menu"
+import { fyjSystems } from "@/data/constants"
 import Image from "next/image"
 import React from "react"
 
@@ -30,7 +30,7 @@ export default function Systems() {
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-[14rem] lg:mb-[7rem] lg:max-w-5xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {fyjSystems.map((system) => (
-                <a key={system.id} href={system.url} target="_blank" rel="noopener noreferrer" className="relative pl-16">
+                <a key={system.id} href={system.url} target="_blank" rel="noopener noreferrer" className="relative pl-16" data-testid="systemLink">
                   <dt className="text-base font-semibold leading-7 text-gray-900">
                     <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
                       <system.icon

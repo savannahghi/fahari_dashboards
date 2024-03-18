@@ -1,34 +1,9 @@
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { HiChartBar, HiLockClosed } from "react-icons/hi"
-import { HiMiniCloudArrowUp } from "react-icons/hi2";
-
+import { features } from "@/data/constants"
 
 export default function Admin() {
-  const features = [
-    {
-      name: "Dashboards",
-      path: "dashboards",
-      description:
-        "An analysis of dashboards used to assess the access to health services and the quality provided across Nairobi and Kajiado Counties",
-      icon: HiChartBar,
-    },
-    {
-      name: "Systems",
-      path: "systems",
-      description: "Systems used at Fahari ya Jamii.",
-      icon: HiLockClosed,
-    },
-    {
-      name: "Cloud EMR",
-      path: "cloudemr",
-      description:
-        "Links to cloud EMR facilities across Nairobi and Kajiado Counties.",
-      icon: HiMiniCloudArrowUp,
-    },
-  ]
-
   return (
     <>
       <div className="bg-white">
@@ -60,6 +35,7 @@ export default function Admin() {
                 <Link
                   key={feature.name}
                   href={`/${feature.path}`}
+                  data-testid="featureItem"
                   className="relative pl-16"
                 >
                   <dt className="text-base font-semibold leading-7 text-gray-900">

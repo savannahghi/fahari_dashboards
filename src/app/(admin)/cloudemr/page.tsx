@@ -1,10 +1,10 @@
-import { cloudEmrs } from "@/data/menu"
+import { cloudEmrs } from "@/data/constants"
 import React from "react"
 
 export default function CloudEmr() {
   return (
     <>
-      <div className="px-4 mx-auto lg:px-8 lg:py-20">
+      <div className="py-4 mx-auto lg:px-8 lg:py-20">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="sm:flex sm:items-center">
             <div className="sm:flex-auto">
@@ -25,105 +25,96 @@ export default function CloudEmr() {
               </button>
             </div>
           </div>
-          <div className="mt-8 flow-root">
-            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-                  <table className="min-w-full divide-y divide-gray-300">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th
-                          scope="col"
-                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                        >
-                          Id
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                        >
-                          Facility
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                        >
-                          County
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
-                        >
-                          KenyaEMR
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
-                        >
-                          WebADT
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
-                        >
-                          DWAPI_URL
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
-                      {cloudEmrs.map((emr) => (
-                        <tr key={emr.id}>
-                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                            {emr.id}
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {emr.facility}
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {emr.county}
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                            <a
-                              href={emr.KenyaEMR_URL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-indigo-600 hover:text-indigo-900"
-                            >
-                              View{" "}
-                              <span className="sr-only">
-                                , KenyaEMR Instance
-                              </span>
-                            </a>
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                            <a
-                              href={emr.WebADT_URL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-indigo-600 hover:text-indigo-900"
-                            >
-                              View{" "}
-                              <span className="sr-only">, WebADT Instance</span>
-                            </a>
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                            <a
-                              href={emr.DWAPI_URL}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-indigo-600 hover:text-indigo-900"
-                            >
-                              View
-                              <span className="sr-only">, DWAPI Instance</span>
-                            </a>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+          <div className="mt-8 relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full divide-y divide-gray-300">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                  >
+                    Id
+                  </th>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    Facility
+                  </th>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    County
+                  </th>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
+                  >
+                    KenyaEMR
+                  </th>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
+                  >
+                    WebADT
+                  </th>
+                  <th
+                    scope="col"
+                    className="whitespace-nowrap px-3 py-3.5 text-left text-sm font-semibold text-center text-gray-900"
+                  >
+                    DWAPI_URL
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                {cloudEmrs.map((emr) => (
+                  <tr key={emr.id} data-testid="cloudemr">
+                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      {emr.id}
+                    </td>
+                    <td className="text-balance px-3 py-4 text-sm text-gray-500">
+                      {emr.facility}
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      {emr.county}
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
+                      <a
+                        href={emr.KenyaEMR_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-indigo-600 hover:text-indigo-900"
+                      >
+                        View{" "}
+                        <span className="sr-only">, KenyaEMR Instance</span>
+                      </a>
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
+                      <a
+                        href={emr.WebADT_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-indigo-600 hover:text-indigo-900"
+                      >
+                        View <span className="sr-only">, WebADT Instance</span>
+                      </a>
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
+                      <a
+                        href={emr.DWAPI_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-indigo-600 hover:text-indigo-900"
+                      >
+                        View
+                        <span className="sr-only">, DWAPI Instance</span>
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
