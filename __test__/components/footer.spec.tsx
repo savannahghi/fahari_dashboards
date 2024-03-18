@@ -6,7 +6,7 @@ describe("Footer Component Unit Test", () => {
   it("should render the footer component", () => {
     render(<Footer />)
     const footerText = screen.getByText(
-      /Savannah Informatics Limited, All rights reserved./i,
+      /Savannah Global Health Institute, All rights reserved./i,
     )
 
     expect(footerText).toBeInTheDocument()
