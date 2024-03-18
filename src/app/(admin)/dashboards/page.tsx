@@ -1,17 +1,18 @@
 "use client"
 
 import { ChangeEvent, useState } from "react"
-import { menuItems } from "@/data/menu"
-import { MenuTemp } from "@types"
+import { DashboardTypeTemp } from "@types"
+import { dashboards } from "@/data/constants"
 
 const DashBoards = () => {
   const [selectedDashboard, setSelectedDashboard] = useState<
-    MenuTemp | undefined
-  >(menuItems.length > 0 ? menuItems[0] : undefined)
+    DashboardTypeTemp | undefined
+  >(dashboards?.length > 0 ? dashboards[0] : undefined)
 
   const handleDashboardSelection = (event: ChangeEvent<HTMLInputElement>) => {
     const dashboard =
-      menuItems.find((item) => item.id === event.target.value) ?? undefined
+      dashboards.find((dashboard) => dashboard.id === event.target.value) ??
+      undefined
     setSelectedDashboard(dashboard)
   }
   const visualization = selectedDashboard?.visualizations
@@ -24,17 +25,17 @@ const DashBoards = () => {
         Dashboards
       </h1>
       <div className="flex flex-wrap">
-        {menuItems?.map((dashboard: MenuTemp, index: number) => (
+        {dashboards?.map((dashboard: DashboardTypeTemp, index: number) => (
           <div
             key={index}
-            data-testid={"filter-option"}
+            data-testid="dashboard"
             className="flex flex-wrap items-center mb-2"
           >
             <input
               type="checkbox"
               id={dashboard.id}
               name={dashboard.title}
-              data-testid={"filter-checkbox"}
+              data-testid="dashboard-checkbox"
               value={dashboard.id}
               checked={selectedDashboard?.id === dashboard.id}
               onChange={handleDashboardSelection}
@@ -42,7 +43,7 @@ const DashBoards = () => {
             />
             <label
               htmlFor={dashboard.id}
-              className={`flex items-center m-2 px-4 py-0.5 text-xs rounded-full text-center text-[13px] hover:text-white hover:bg-[#585aeb] 
+              className={`flex items-center m-1 sm:m-2 px-4 py-0.5 text-xs rounded-full text-center text-[13px] hover:text-white hover:bg-[#585aeb] 
                           ${
                             selectedDashboard?.id === dashboard.id
                               ? "bg-[#585aeb] text-white"
@@ -56,7 +57,7 @@ const DashBoards = () => {
         ))}
       </div>
       <section className="cursor-pointer flex flex-row">
-        <section className="bg-slate-100 w-screen p-5 flex flex-col space-y-6">
+        <section className="bg-slate-100 w-screen p-2 sm:p-5 flex flex-col space-y-6">
           <h3 className="sm:text-2xl text-lg text-blue-800 font-bold">
             {selectedDashboard?.title}
           </h3>

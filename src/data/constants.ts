@@ -1,7 +1,36 @@
-import { HiOutlineServer, HiOutlineInformationCircle } from "react-icons/hi"
-import { MenuTemp, cloudEmrSystems, fyjMenuSystems } from "@types"
+import {
+  HiChartBar,
+  HiLockClosed,
+  HiOutlineServer,
+  HiOutlineInformationCircle,
+} from "react-icons/hi"
+import { HiMiniCloudArrowUp } from "react-icons/hi2"
+import { DashboardTypeTemp, cloudEmrSystems, fyjMenuSystems } from "@types"
 
-export const menuItems: MenuTemp[] = [
+export const features = [
+  {
+    name: "Dashboards",
+    path: "dashboards",
+    description:
+      "An analysis of dashboards used to assess the access to health services and the quality provided across Nairobi and Kajiado Counties",
+    icon: HiChartBar,
+  },
+  {
+    name: "Systems",
+    path: "systems",
+    description: "Systems used at Fahari ya Jamii.",
+    icon: HiLockClosed,
+  },
+  {
+    name: "Cloud EMR",
+    path: "cloudemr",
+    description:
+      "Links to cloud EMR facilities across Nairobi and Kajiado Counties.",
+    icon: HiMiniCloudArrowUp,
+  },
+]
+
+export const dashboards: DashboardTypeTemp[] = [
   {
     id: "0697da45-e08f-45c4-91fe-bae19398bc54",
     created_by: null,

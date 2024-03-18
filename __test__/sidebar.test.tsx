@@ -1,98 +1,56 @@
-import SideBar from "@/components/sidebar/sidebar"
+import Sidebar from "@/components/Sidebar"
 import { screen, render, fireEvent } from "@testing-library/react"
-import { useRouter } from "next/navigation"
 
 jest.mock("next/navigation", () => {
-  const push = jest.fn()
-
   return {
     useRouter: jest.fn(() => ({
-      push: push,
+      route: "/admin",
+      pathname: "/admin",
+      query: "",
+      asPath: "/admin",
+      push: jest.fn(),
     })),
+    usePathname: jest.fn(() => "admin"),
   }
 })
 
-describe("Unit Test sidebar component", () => {
+describe("Unit Test sidebar component open", () => {
+  const setCollapsedMock = jest.fn()
+
   beforeEach(() => {
-    render(<SideBar />)
+    render(<Sidebar collapsed={false} setCollapsed={setCollapsedMock} />)
+  })
+
+  test("should render admin Icon and text", () => {
+    const linkElement = screen.getByTestId("adminLinkOpen")
+    expect(linkElement).toBeDefined()
   })
 
   test("Image element should be visible", () => {
-    const imageElement = screen.getByRole("img")
+    const imageElement = screen.getByTestId("idrLogo")
 
-    expect(imageElement).toBeVisible
+    expect(imageElement).toBeDefined()
   })
 
-  test("should render correct heading title", () => {
-    const headingElement = screen.getByText(/Fahari ya Jamii/i)
-    expect(headingElement).toBeVisible
+  test("Toggle button should toggle displays", () => {
+    const toggleBtn = screen.getByTestId("navToggle")
+    fireEvent.click(toggleBtn)
+
+    const linkElement = screen.getByTestId("adminLinkClosed")
+    expect(linkElement).toBeDefined()
+    expect(toggleBtn).toBeDefined()
+  })
+})
+
+describe("Unit Test sidebar component collapsed", () => {
+  const setCollapsedMock = jest.fn()
+
+  beforeEach(() => {
+    render(<Sidebar collapsed={true} setCollapsed={setCollapsedMock} />)
   })
 
-  test("should display all icons", () => {
-    const iconELement = screen.getAllByTestId("icon")
-    expect(iconELement).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/home/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/dashboards/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/covid-19/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/hiv services/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/Account/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/settings/i)
-    expect(iconTitle).toBeVisible
-  })
-  test("should render correct icon title", () => {
-    const iconTitle = screen.getByText(/profile/i)
-    expect(iconTitle).toBeVisible
-  })
-
-  test("should render 5 visible icons", () => {
-    const icon = screen.getAllByTestId("icon")
-    expect(icon.length).toBe(5)
-  })
-
-  test("home icon should be clickable", () => {
-    const homeIcon = screen.getByTestId("home")
-
-    fireEvent.click(homeIcon)
-
-    expect(useRouter().push).toBeCalledWith("dashboards")
-  })
-
-  test("covid icon should be clickable", () => {
-    const homeIcon = screen.getByTestId("covid")
-
-    fireEvent.click(homeIcon)
-
-    expect(useRouter().push).toBeCalledWith("covid")
-  })
-
-  test("hiv icon should be clickable", () => {
-    const homeIcon = screen.getByTestId("hiv")
-
-    fireEvent.click(homeIcon)
-
-    expect(useRouter().push).toBeCalledWith("hts")
+  test("should render admin Icon only", () => {
+    const linkElement = screen.getByTestId("adminLinkClosed")
+    expect(linkElement).toBeDefined()
   })
 })

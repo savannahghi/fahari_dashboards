@@ -20,6 +20,7 @@ const Home = () => {
                   <Image
                     height={40}
                     width={40}
+                    data-testid="logoImg"
                     className="h-11"
                     src={idrServerLogo}
                     alt="CBS Logo"

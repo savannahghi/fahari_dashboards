@@ -89,6 +89,7 @@ const LoginPage = () => {
                 <div className="mt-2">
                   <input
                     id="password"
+                    data-testid="password"
                     name="password"
                     type="password"
                     value={inputs.password}
